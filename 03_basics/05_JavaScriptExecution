@@ -1,0 +1,57 @@
+//call stack work in 'lifo' concept, it means that "last in first out" .
+
+//How does javaScript work behind the screen .
+
+/*
+
+In javascript , program is executed in two phase 
+(1) global execution context :- jismain isko "this" variable main store kaerta hai 
+
+-> global execution context
+-> function execution context
+-> eval execution context 
+
+
+Any problem run in two phase one is memory phase and other is execution context .
+
+#code 
+let val1=5
+let val2=10
+function addnum(){
+    let total = num1+num2;
+    return total;
+}
+
+let result1=addnum(val1,val2);
+let result2= addnum(10,2);
+
+
+In memory phase :--
+val1->undefined
+val2->undefined
+addnum->defination
+result1->undefined
+result2->undefined
+
+In Execution context :--
+val1 <- 5
+val2 <- 10
+addnum -> new box created in which [ new variable environment + execution thread] then it perform two execution one is memory phase 
+and other is execution context
+In memory phase :
+val1->undefined
+val2->undefined
+total -> undefined
+
+In execution phase : 
+num1 -> 5
+num2 -> 10
+total -> 15
+
+then repear for other dunction same things
+
+
+
+
+
+*/

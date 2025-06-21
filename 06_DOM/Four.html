@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM by Chai aur code</title>
+</head>
+<body>
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+    <script>
+        function addLanguage(langName){
+            const li = document.createElement('li')
+            li.innerText = `${langName}`
+            document.querySelector('.language').appendChild(li)
+        }
+
+        addLanguage("python")
+        addLanguage("typeScript")
+
+        function addOptimiseLanguage(langName){
+            const li = document.createElement('li')
+            li.appendChild(document.createTextNode(langName))
+            document.querySelector('.language').appendChild(li)
+        }
+
+        addOptimiseLanguage("java")
+        addOptimiseLanguage("cpp")
+
+        //Edit 
+
+        const secondLang = document.querySelector('li:nth-child(2)')
+        //secondLang.innerText = "mojo"
+        //secondLang.innerHTML = "ruby"
+
+        const newli = document.createElement('li')
+        newli.textContent = "mojo"
+        secondLang.replaceWith(newli)
+
+
+        const firstLang = document.querySelector('li:nth-child(1)')
+        const new1stli = document.createElement('li')
+        new1stli.textContent = "goland"
+        firstLang.replaceWith(new1stli)
+
+        const lastLang = document.querySelector('li:nth-child(5)')
+        lastLang.outerHTML = '<li>typescript</li>'
+
+
+        //remove
+        const lastlang = document.querySelector("li:nth-child(5)")
+        lastlang.remove()
+        </script>
+</body>
+</html>
+

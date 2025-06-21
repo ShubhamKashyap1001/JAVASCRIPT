@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class = "selfDocuments">
+        <li>Name = Shubham</li>
+    </ul>
+</body>
+<script>
+function addDocuments(docName){
+    const li = document.createElement('li')
+    li.innerText = `${docName}`
+    document.querySelector('.selfDocuments').appendChild(li)
+}
+
+addDocuments("Email - shubham@gmail.com")
+
+function addOptimiseDocuments(docName){
+    const li = document.createElement('li')
+    li.appendChild(document.createTextNode(docName))
+    document.querySelector('.selfDocuments').appendChild(li)
+}
+
+addOptimiseDocuments("Roll = 12")
+addOptimiseDocuments("Dept = Iot")
+
+//Edit
+const deptName = document.querySelector('li:nth-child(4)')
+const newdeptName = document.createElement('li')
+newdeptName.textContent = "CSE(IOT)"
+deptName.replaceWith(newdeptName)
+
+const rollNo = document.querySelector('li:nth-child(3)')
+rollNo.outerHTML = `<li>Roll = 62</li>`
+</script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Checker</title>
+    <style>
+        body{
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f4f8;
+            
+        }
+
+        .container{
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        input{
+            padding: 10px;
+            width: 100%;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+
+        }
+
+        button{
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            background: blue;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: large;
+        }
+
+        #result{
+            font-weight: bold;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Factorial</h2>
+        <input type = "number" id ="numberInput" placeholder="Enter number" min="0"/>
+        <button onclick="calculateFactorial()">Calculate</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateFactorial() {
+            const number = parseInt(document.getElementById("numberInput").value);
+            const resultElement = document.getElementById("result");
+
+            if (isNaN(number) || number < 0) {
+                resultElement.textContent = "Please enter a non-negative integer.";
+                return;
+            }
+
+            let fact = 1;
+            for (let i = 2; i <= number; i++) {
+                fact *= i;
+             }
+
+            resultElement.textContent = `Factorial of ${number} is ${fact}`;
+        }
+
+        
+    </script>
+</body>
+</html>
