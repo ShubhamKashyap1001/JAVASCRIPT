@@ -1,0 +1,13 @@
+-> javascript is a synchronous(execute one by one it means one after other line) and single thread
+-> Execution context:
+        - excute one line of code ata a time
+        -console los ->1
+        -console log ->2
+
+->Blocking code = block the flow of program , read file synchronous
+->Non Blocking code = does not block execution, read file async
+
+-> web api found in browser
+->fetch() = promise -> high priority
+->setTimeOut = it timeout the function that is perform after interval of time
+->task Queue = add to call stack
