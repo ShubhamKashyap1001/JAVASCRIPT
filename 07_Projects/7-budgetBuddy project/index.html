@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetBuddy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #283e51, #485563);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    input, select, button {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .list {
+      margin-top: 20px;
+    }
+
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+
+    .balance {
+      font-size: 1.4em;
+      margin: 20px 0 10px;
+    }
+
+    .expense {
+      color: #ff4c4c;
+    }
+
+    .income {
+      color: #66ff66;
+    }
+  </style>
+</head>
+<body>
+  <h1>💰 BudgetBuddy</h1>
+  <div class="container">
+    <div class="balance" id="balance">Balance: ₹0</div>
+    <input type="text" id="desc" placeholder="Description">
+    <input type="number" id="amount" placeholder="Amount">
+    <select id="type">
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+    <button onclick="addTransaction()">Add Transaction</button>
+
+    <div class="list" id="list"></div>
+  </div>
+
+  <script>
+    let balance = 0;
+    const balanceDisplay = document.getElementById('balance');
+    const list = document.getElementById('list');
+
+    function addTransaction() {
+      const desc = document.getElementById('desc').value;
+      const amount = parseFloat(document.getElementById('amount').value);
+      const type = document.getElementById('type').value;
+
+      if (!desc || isNaN(amount) || amount <= 0) {
+        alert('Please enter a valid description and amount.');
+        return;
+      }
+
+      const item = document.createElement('div');
+      item.classList.add('list-item');
+      item.innerHTML = `
+        <span>${desc}</span>
+        <span class="${type === 'expense' ? 'expense' : 'income'}">₹${amount.toFixed(2)}</span>
+      `;
+
+      list.appendChild(item);
+
+      if (type === 'income') {
+        balance += amount;
+      } else {
+        balance -= amount;
+      }
+
+      balanceDisplay.textContent = `Balance: ₹${balance.toFixed(2)}`;
+
+      document.getElementById('desc').value = '';
+      document.getElementById('amount').value = '';
+    }
+  </script>
+</body>
+</html>
