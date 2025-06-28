@@ -22,10 +22,10 @@ Object literal
 
 
 ## 4 pillers
-Abstraction :- Hiding details (fatch)
-Encapsulation :- wrap the data and method
-Inheritance 
-polymorphism :- many form
+1)Abstraction :- Hiding details (fatch),
+2)Encapsulation :- wrap the data and method,
+3)Inheritance ,
+4)polymorphism :- many form,
 
 
 
